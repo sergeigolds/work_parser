@@ -23,13 +23,17 @@ def cvonline_parse():
         for offer in offers:
             item = {}
             item['title'] = offer.find('a', attrs={'itemprop': 'title'}).text
+            item['firm_name'] = offer.find('a', attrs={'itemprop': 'name'}).text
             item['link'] = offer.find('a', attrs={'itemprop': 'title'}).get('href')
             item['date'] = offer.find('span', attrs={'itemprop': 'datePosted'}).text
+            item['site'] = 'Cv-Online'
             data.append(item)
 
             print("title: " + item['title'])
+            print("firm_name: " + item['firm_name'])
             print("link: " + item['link'])
             print("date: " + item['date'])
+            print("site: " + item['site'])
 
         with open("output.json", "w", encoding='utf8') as writeJSON:
             json.dump(data, writeJSON, ensure_ascii=False)

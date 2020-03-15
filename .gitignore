@@ -224,7 +224,10 @@ $RECYCLE.BIN/
 
 # Output
 
+index.html
 output.json
+/templates
+
 
 
 # End of https://www.gitignore.io/api/python,pycharm,windows
