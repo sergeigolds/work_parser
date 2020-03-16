@@ -7,6 +7,8 @@ headers = {'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleW
 
 base_url = 'https://www.cv.ee/objavlenija-o-rabote/vene?sort=inserted&dir=desc'
 
+data = []
+
 
 def cvonline_parse():
     session = requests.Session()
@@ -19,7 +21,6 @@ def cvonline_parse():
         offer_wrapper = soup.find(class_='cvo_module_offers_wrap')
         offers = offer_wrapper.find_all(class_='cvo_module_offer_content')
 
-        data = []
         for offer in offers:
             item = {}
             item['title'] = offer.find('a', attrs={'itemprop': 'title'}).text
@@ -35,7 +36,8 @@ def cvonline_parse():
             print("date: " + item['date'])
             print("site: " + item['site'])
 
-        with open("output.json", "w", encoding='utf8') as writeJSON:
-            json.dump(data, writeJSON, ensure_ascii=False)
+        with open("cvonline.json", "w", encoding='utf8') as writeJSON:
+            json.dump(data, writeJSON, ensure_ascii=False, indent=4)
+
 
 cvonline_parse()

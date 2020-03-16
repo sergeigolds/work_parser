@@ -227,7 +227,9 @@ $RECYCLE.BIN/
 index.html
 output.json
 /templates
-
+cvkeskus.json
+cvonline.json
+data.json
 
 
 # End of https://www.gitignore.io/api/python,pycharm,windows
