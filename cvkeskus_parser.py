@@ -45,5 +45,3 @@ def cvkeskus_parse():
             with open("cvkeskus.json", "w", encoding='utf8') as writeJSON:
                 json.dump(data, writeJSON, ensure_ascii=False, indent=4)
 
-
-cvkeskus_parse()

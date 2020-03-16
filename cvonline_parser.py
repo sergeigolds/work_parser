@@ -38,6 +38,3 @@ def cvonline_parse():
 
         with open("cvonline.json", "w", encoding='utf8') as writeJSON:
             json.dump(data, writeJSON, ensure_ascii=False, indent=4)
-
-
-cvonline_parse()
